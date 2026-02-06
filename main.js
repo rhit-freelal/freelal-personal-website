@@ -4,12 +4,42 @@
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initBannerOffset();
     initNavigation();
     initScrollAnimations();
     initCounterAnimations();
     initParallaxEffects();
     initGalleryScroll();
 });
+
+/* ========================================
+   BANNER OFFSET
+   ======================================== */
+
+function initBannerOffset() {
+    const banner = document.querySelector('.internship-banner');
+    const body = document.body;
+
+    const updateBannerHeight = () => {
+        if (!banner) {
+            body.classList.remove('has-banner');
+            body.style.setProperty('--banner-height', '0px');
+            return;
+        }
+
+        body.classList.add('has-banner');
+        const height = banner.getBoundingClientRect().height;
+        body.style.setProperty('--banner-height', `${height}px`);
+    };
+
+    updateBannerHeight();
+    window.addEventListener('load', updateBannerHeight);
+    window.addEventListener('resize', debounce(updateBannerHeight, 150));
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateBannerHeight);
+    }
+}
 
 /* ========================================
    NAVIGATION
@@ -36,10 +66,15 @@ function initNavigation() {
     });
 
     // Mobile menu toggle
-    if (mobileMenuBtn) {
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        navLinks.setAttribute('aria-hidden', 'true');
+
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active', isOpen);
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            navLinks.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
         });
 
         // Close menu when clicking a link
@@ -47,6 +82,8 @@ function initNavigation() {
             link.addEventListener('click', () => {
                 mobileMenuBtn.classList.remove('active');
                 navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
             });
         });
     }

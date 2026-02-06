@@ -21,6 +21,10 @@
     justify-content: center;
 }
 
+body.has-banner {
+    --banner-height: 50px;
+}
+
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -66,12 +70,12 @@
 }
 
 /* Adjust page for banner */
-body:has(.internship-banner) .page-header {
-    padding-top: calc(var(--nav-height) + 50px + 2rem);
+.has-banner .page-header {
+    padding-top: calc(var(--nav-height) + var(--banner-height) + 2rem);
 }
 
-body:has(.internship-banner) .hero {
-    padding-top: calc(var(--nav-height) + 50px);
+.has-banner .hero {
+    padding-top: calc(var(--nav-height) + var(--banner-height));
 }
 
 /* ========================================
@@ -505,29 +509,79 @@ body:has(.internship-banner) .hero {
 /* Games Grid */
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
 }
 
 .game-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+    border: 1px solid rgba(155, 35, 53, 0.2);
     border-radius: 20px;
     padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0.9;
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(155, 35, 53, 0.08) 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.game-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .game-card:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(155, 35, 53, 0.25);
+    border-color: rgba(155, 35, 53, 0.45);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 22px 45px rgba(155, 35, 53, 0.22);
+}
+
+@media (hover: none) {
+    .game-card:hover {
+        transform: none;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .game-card:active {
+        transform: scale(0.99);
+    }
 }
 
 .game-icon {
-    font-size: 3rem;
-    margin-bottom: 0.75rem;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25rem;
+    background: linear-gradient(135deg, rgba(155, 35, 53, 0.18), rgba(155, 35, 53, 0.05));
+    border: 1px solid rgba(155, 35, 53, 0.25);
+    border-radius: 16px;
+    box-shadow: inset 0 0 15px rgba(155, 35, 53, 0.08);
 }
 
 .game-card h3 {
@@ -543,6 +597,13 @@ body:has(.internship-banner) .hero {
     font-size: 0.95rem;
 }
 
+.game-card .btn {
+    min-width: 140px;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
 /* Game Modals */
 .game-modal {
     display: none;
@@ -551,7 +612,8 @@ body:has(.internship-banner) .hero {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(128, 0, 0, 0.9);
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(6px);
     z-index: 2000;
     align-items: center;
     justify-content: center;
@@ -571,22 +633,33 @@ body:has(.internship-banner) .hero {
     width: 100%;
     text-align: center;
     position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .close-game {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: none;
-    border: none;
+    background: rgba(155, 35, 53, 0.08);
+    border: 1px solid rgba(155, 35, 53, 0.2);
     color: var(--text-secondary);
-    font-size: 2rem;
+    font-size: 1.75rem;
     cursor: pointer;
     transition: color 0.2s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-game:hover {
-    color: #ff6b6b;
+    color: var(--accent-primary);
+    background: rgba(155, 35, 53, 0.15);
 }
 
 .game-container h2 {
@@ -649,6 +722,7 @@ body:has(.internship-banner) .hero {
     cursor: pointer;
     transition: transform 0.1s ease;
     user-select: none;
+    touch-action: manipulation;
 }
 
 .click-area:active {
@@ -703,6 +777,7 @@ body:has(.internship-banner) .hero {
     color: var(--text-primary);
     text-align: center;
     font-family: var(--font-mono);
+    touch-action: manipulation;
 }
 
 .typing-input:focus {
@@ -798,6 +873,7 @@ body:has(.internship-banner) .hero {
     cursor: pointer;
     transition: background 0.1s ease;
     margin: 1rem 0;
+    touch-action: manipulation;
 }
 
 .reaction-box.waiting {
@@ -1075,27 +1151,51 @@ body:has(.internship-banner) .hero {
 
     /* Games grid */
     .games-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
     }
 
     .game-card {
-        padding: 1.25rem;
+        padding: 1.25rem 1rem;
     }
 
     .game-icon {
-        font-size: 2.5rem;
+        width: 56px;
+        height: 56px;
+        font-size: 2rem;
     }
 
     .game-card h3 {
         font-size: 1rem;
     }
 
+    .game-card .btn {
+        width: 100%;
+        max-width: none;
+    }
+
     /* Game modals */
+    .game-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+
     .game-container {
-        padding: 1.5rem;
-        margin: 1rem;
-        max-height: 90vh;
+        width: 100%;
+        max-width: 100%;
+        padding: 1.25rem 1.25rem calc(2rem + env(safe-area-inset-bottom));
+        margin: 0;
+        max-height: 92vh;
         overflow-y: auto;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .close-game {
+        position: sticky;
+        top: 0.75rem;
+        margin-left: auto;
+        align-self: flex-end;
+        z-index: 2;
     }
 
     .game-container h2 {
@@ -1189,18 +1289,25 @@ body:has(.internship-banner) .hero {
     }
 
     .game-icon {
-        font-size: 2rem;
+        width: 52px;
+        height: 52px;
+        font-size: 1.8rem;
         margin-bottom: 0.5rem;
+    }
+
+    .game-card .btn {
+        width: 100%;
+        max-width: none;
     }
 
     /* Game modals */
     .game-modal {
-        padding: 1rem;
+        padding: 0;
     }
 
     .game-container {
-        padding: 1.25rem;
-        border-radius: 15px;
+        padding: 1.1rem 1rem calc(1.75rem + env(safe-area-inset-bottom));
+        border-radius: 16px 16px 0 0;
     }
 
     .game-container h2 {
@@ -1342,6 +1449,16 @@ body:has(.internship-banner) .hero {
 
     .typing-word {
         font-size: 1.25rem;
+    }
+
+    .game-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.6rem;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
