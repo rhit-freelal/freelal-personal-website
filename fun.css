@@ -1178,6 +1178,8 @@ body.has-banner {
     .game-modal {
         align-items: flex-end;
         padding: 0;
+        height: 100vh;
+        height: 100dvh;
     }
 
     .game-container {
@@ -1185,8 +1187,10 @@ body.has-banner {
         max-width: 100%;
         padding: 1.25rem 1.25rem calc(2rem + env(safe-area-inset-bottom));
         margin: 0;
-        max-height: 92vh;
+        max-height: calc(100dvh - 0.5rem);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
         border-radius: 18px 18px 0 0;
     }
 
@@ -1466,6 +1470,8 @@ body.has-banner {
 @media (max-height: 500px) and (orientation: landscape) {
     .game-modal {
         padding: 0.5rem;
+        height: 100vh;
+        height: 100dvh;
     }
 
     .game-container {
