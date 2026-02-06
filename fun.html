@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Zone | Alex Freel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fun.css">
+</head>
+<body class="fun-page">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Alex Freel</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="rose-hulman.html" class="nav-link">Rose-Hulman</a></li>
+                <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+                <li><a href="fun.html" class="nav-link fun-link">🎮 Fun</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Fun Header -->
+    <header class="page-header fun-header">
+        <div class="fun-emojis">
+            <span class="floating-emoji" style="--delay: 0s; --x: 10%;">🎮</span>
+            <span class="floating-emoji" style="--delay: 0.5s; --x: 25%;">🎯</span>
+            <span class="floating-emoji" style="--delay: 1s; --x: 40%;">🏆</span>
+            <span class="floating-emoji" style="--delay: 1.5s; --x: 55%;">⭐</span>
+            <span class="floating-emoji" style="--delay: 2s; --x: 70%;">🚀</span>
+            <span class="floating-emoji" style="--delay: 2.5s; --x: 85%;">🎲</span>
+        </div>
+        <h1 class="page-title rainbow-text">Fun Zone!</h1>
+        <p class="page-subtitle">Take a break and play some games! (Yes, I coded these myself 😎)</p>
+    </header>
+
+    <!-- Games Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-gamepad"></i> Minigames</span>
+                <h2 class="section-title">Pick a Game!</h2>
+            </div>
+
+            <div class="games-grid">
+                <!-- Click Speed Game -->
+                <div class="game-card" id="click-game-card">
+                    <div class="game-icon">🖱️</div>
+                    <h3>Click Speed Test</h3>
+                    <p>How fast can you click? Test your CPS!</p>
+                    <button class="btn btn-primary" onclick="startClickGame()">Play</button>
+                </div>
+
+                <!-- Typing Game -->
+                <div class="game-card" id="typing-game-card">
+                    <div class="game-icon">⌨️</div>
+                    <h3>Typing Challenge</h3>
+                    <p>Test your typing speed with coding terms!</p>
+                    <button class="btn btn-primary" onclick="startTypingGame()">Play</button>
+                </div>
+
+                <!-- Memory Game -->
+                <div class="game-card" id="memory-game-card">
+                    <div class="game-icon">🧠</div>
+                    <h3>Memory Match</h3>
+                    <p>Match the programming language icons!</p>
+                    <button class="btn btn-primary" onclick="startMemoryGame()">Play</button>
+                </div>
+
+                <!-- Reaction Time -->
+                <div class="game-card" id="reaction-game-card">
+                    <div class="game-icon">⚡</div>
+                    <h3>Reaction Time</h3>
+                    <p>How fast are your reflexes?</p>
+                    <button class="btn btn-primary" onclick="startReactionGame()">Play</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Containers (Hidden by default) -->
+
+    <!-- Click Speed Game -->
+    <div class="game-modal" id="click-game-modal">
+        <div class="game-container">
+            <button class="close-game" onclick="closeGame('click-game-modal')">&times;</button>
+            <h2>🖱️ Click Speed Test</h2>
+            <p>Click as fast as you can for 10 seconds!</p>
+            <div class="click-area" id="click-area">
+                <span id="click-count">0</span>
+                <small>clicks</small>
+            </div>
+            <div class="game-timer" id="click-timer">10.0s</div>
+            <button class="btn btn-primary" id="click-start-btn" onclick="beginClickTest()">Start!</button>
+            <div class="game-result" id="click-result"></div>
+        </div>
+    </div>
+
+    <!-- Typing Game -->
+    <div class="game-modal" id="typing-game-modal">
+        <div class="game-container typing-container">
+            <button class="close-game" onclick="closeGame('typing-game-modal')">&times;</button>
+            <h2>⌨️ Typing Challenge</h2>
+            <p>Type the words as fast as you can!</p>
+            <div class="typing-display" id="typing-display">
+                <span class="typing-word" id="current-word">Press Start</span>
+            </div>
+            <input type="text" class="typing-input" id="typing-input" placeholder="Type here..." disabled>
+            <div class="typing-stats">
+                <span>Words: <strong id="words-typed">0</strong></span>
+                <span>Time: <strong id="typing-timer">30s</strong></span>
+                <span>WPM: <strong id="wpm">0</strong></span>
+            </div>
+            <button class="btn btn-primary" id="typing-start-btn" onclick="beginTypingTest()">Start!</button>
+            <div class="game-result" id="typing-result"></div>
+        </div>
+    </div>
+
+    <!-- Memory Game -->
+    <div class="game-modal" id="memory-game-modal">
+        <div class="game-container memory-container">
+            <button class="close-game" onclick="closeGame('memory-game-modal')">&times;</button>
+            <h2>🧠 Memory Match</h2>
+            <p>Match the pairs! Find all matches to win.</p>
+            <div class="memory-stats">
+                <span>Moves: <strong id="memory-moves">0</strong></span>
+                <span>Pairs: <strong id="memory-pairs">0</strong>/8</span>
+            </div>
+            <div class="memory-grid" id="memory-grid"></div>
+            <div class="game-result" id="memory-result"></div>
+            <button class="btn btn-primary" onclick="resetMemoryGame()">New Game</button>
+        </div>
+    </div>
+
+    <!-- Reaction Time Game -->
+    <div class="game-modal" id="reaction-game-modal">
+        <div class="game-container">
+            <button class="close-game" onclick="closeGame('reaction-game-modal')">&times;</button>
+            <h2>⚡ Reaction Time</h2>
+            <p>Wait for green, then click as fast as you can!</p>
+            <div class="reaction-box" id="reaction-box" onclick="handleReactionClick()">
+                <span id="reaction-text">Click to Start</span>
+            </div>
+            <div class="game-result" id="reaction-result"></div>
+            <div class="reaction-history" id="reaction-history"></div>
+        </div>
+    </div>
+
+    <!-- Fun Facts Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-lightbulb"></i> Fun Facts</span>
+                <h2 class="section-title">Random Things About Me</h2>
+            </div>
+
+            <div class="fun-facts-carousel">
+                <div class="fun-fact active" id="fact-1">
+                    <span class="fact-emoji">🔧</span>
+                    <p>I love building things - from embedded systems to video games!</p>
+                </div>
+                <div class="fun-fact" id="fact-2">
+                    <span class="fact-emoji">💻</span>
+                    <p>My first program was a different style of The World's Hardest Game in Python.</p>
+                </div>
+                <div class="fun-fact" id="fact-3">
+                    <span class="fact-emoji">🎵</span>
+                    <p>I listen to music while coding - it helps me focus!</p>
+                </div>
+                <div class="fun-fact" id="fact-4">
+                    <span class="fact-emoji">🐕</span>
+                    <p>I have two dogs back home that I miss a lot!</p>
+                </div>
+                <div class="fun-fact" id="fact-5">
+                    <span class="fact-emoji">🌙</span>
+                    <p>I'm definitely more of a night owl coder.</p>
+                </div>
+            </div>
+            <div class="fact-dots">
+                <span class="fact-dot active" onclick="showFact(1)"></span>
+                <span class="fact-dot" onclick="showFact(2)"></span>
+                <span class="fact-dot" onclick="showFact(3)"></span>
+                <span class="fact-dot" onclick="showFact(4)"></span>
+                <span class="fact-dot" onclick="showFact(5)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Placeholder -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-trophy"></i> Your Scores</span>
+                <h2 class="section-title">Personal Bests</h2>
+            </div>
+            <div class="leaderboard">
+                <div class="leaderboard-item">
+                    <span class="lb-game">🖱️ Click Speed</span>
+                    <span class="lb-score" id="best-cps">-- CPS</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="lb-game">⌨️ Typing</span>
+                    <span class="lb-score" id="best-wpm">-- WPM</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="lb-game">⚡ Reaction</span>
+                    <span class="lb-score" id="best-reaction">-- ms</span>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="lb-game">🧠 Memory</span>
+                    <span class="lb-score" id="best-memory">-- moves</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Business -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Thanks for Playing! 🎉</h2>
+                <p class="section-subtitle">
+                    Hope you had fun! Now back to the serious stuff...
+                </p>
+                <div class="hero-buttons" style="margin-top: 2rem; opacity: 1; animation: none;">
+                    <a href="rose-hulman.html" class="btn btn-primary">
+                        <i class="fas fa-graduation-cap"></i>
+                        Rose-Hulman Info
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-briefcase"></i>
+                        Hire Me!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">&copy; 2026 Alex Freel | Made with ❤️ and lots of ☕</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="fun.js"></script>
+</body>
+</html>

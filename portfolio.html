@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Alex Freel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fun.css">
+</head>
+<body>
+    <!-- Internship Banner -->
+    <div class="internship-banner">
+        <div class="banner-content">
+            <span class="banner-icon">🚀</span>
+            <span><strong>Seeking Summer 2026 Internship!</strong> Computer Engineering @ Rose-Hulman</span>
+            <a href="rose-hulman.html" class="banner-btn">Learn More</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container" style="top: 50px;">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Alex Freel</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="rose-hulman.html" class="nav-link">Rose-Hulman</a></li>
+                <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+                <li><a href="fun.html" class="nav-link fun-link">🎮 Fun</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">My <span class="text-gradient">Projects</span></h1>
+        <p class="page-subtitle">A collection of things I've built - from games to robots to secure systems</p>
+    </header>
+
+    <!-- Featured Projects Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-star"></i> Featured</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Bonfire Game -->
+                <div class="card project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="card-title">Bonfire (Java Game)</h3>
+                    <p class="card-description">
+                        Built a complete game from scratch in Java featuring enemy tracking movement, collision detection, an automated scoring system, and hero movement. Implemented polymorphism through refactoring and interfaces, and used try-catch blocks for robust exception handling.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">Game Dev</span>
+                        <span class="skill-tag">Polymorphism</span>
+                    </div>
+                </div>
+
+                <!-- World's Hardest Game -->
+                <div class="card project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="card-title">World's Hardest Game Replica (Python)</h3>
+                    <p class="card-description">
+                        Recreated the classic "World's Hardest Game" in Python. Implemented boundaries, coins, player movement, obstacles, and interactions. Focused on clean code organization and optimization techniques.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Game Dev</span>
+                        <span class="skill-tag">Pygame</span>
+                    </div>
+                </div>
+
+                <!-- ECE Team Project -->
+                <div class="card project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="card-title">Automated Robot (ECE Team Project)</h3>
+                    <p class="card-description">
+                        Built an autonomous robot using photoresistor, line sensor, and IR sensor to navigate a track automatically. Developed C code for the software that guided the robot's sensors and movement decisions.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Embedded</span>
+                        <span class="skill-tag">Sensors</span>
+                        <span class="skill-tag">Robotics</span>
+                    </div>
+                </div>
+
+                <!-- Personal Website -->
+                <div class="card project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="card-title">This Website!</h3>
+                    <p class="card-description">
+                        Built this personal portfolio website from scratch featuring a dark tech theme, responsive design, smooth animations, and even minigames! Designed to showcase my work and help secure internship opportunities.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Responsive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Systems Lab Projects -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-microchip"></i> Lab Work</span>
+                <h2 class="section-title">Digital Systems Lab Projects</h2>
+                <p class="section-subtitle">2024 - 2025 | Hands-on embedded systems and hardware projects</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-display"></i></div>
+                    <h3 class="card-title">MSP432 + LCD/Motors</h3>
+                    <p class="card-description">
+                        Programmed MSP432 microcontroller to interface with LCD displays, servo motors, and stepper motors.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">MSP432</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Embedded</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="card-title">RISC-V Assembly</h3>
+                    <p class="card-description">
+                        Developed RISC-V assembly programs for algorithms including Fibonacci sequence and array manipulation.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">RISC-V</span>
+                        <span class="skill-tag">Assembly</span>
+                        <span class="skill-tag">Algorithms</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+                    <h3 class="card-title">Filter Design (MATLAB)</h3>
+                    <p class="card-description">
+                        Implemented Butterworth and Chebyshev filters in MATLAB for signal analysis and processing.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Signal Processing</span>
+                        <span class="skill-tag">Filters</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="card-title">UART Communication</h3>
+                    <p class="card-description">
+                        Designed UART-based communication protocols for peripheral control between microcontroller and devices.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">UART</span>
+                        <span class="skill-tag">Protocols</span>
+                        <span class="skill-tag">Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Machine Project -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-server"></i> Systems</span>
+                <h2 class="section-title">Systems Projects</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <h2><i class="fab fa-linux text-gradient"></i> Virtual Machine Setup</h2>
+                    <p>
+                        Explored the art of virtualization by creating a virtual machine using VMware. Successfully set up a fully functional Linux environment running from my Windows computer.
+                    </p>
+                    <p>
+                        This project taught me about operating system fundamentals, virtualization technology, and cross-platform development environments.
+                    </p>
+                    <div class="skills-list" style="margin-top: 1rem;">
+                        <span class="skill-tag">VMware</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Windows</span>
+                        <span class="skill-tag">Virtualization</span>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-desktop" style="font-size: 4rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+                        <p style="color: var(--text-secondary);">Windows + Linux<br>on one machine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Used -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label"><i class="fas fa-tools"></i> Tech Stack</span>
+                <h2 class="section-title">Technologies I've Used</h2>
+            </div>
+
+            <div class="skills-list" style="justify-content: center; gap: 1rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Java</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Python</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">C</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Verilog</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">HTML/CSS</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">JavaScript</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">RISC-V Assembly</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">MATLAB</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">MSP432</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">VMware</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Linux</span>
+                <span class="skill-tag" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Git</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub CTA -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Want to See More?</h2>
+                <p class="section-subtitle">
+                    Check out my resume for more details on my projects and experience.
+                </p>
+                <div class="hero-buttons" style="margin-top: 2rem; opacity: 1; animation: none;">
+                    <a href="Freel_Alex_Resume_2026.pdf" download class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Contact Me
+                    </a>
+                    <a href="fun.html" class="btn btn-secondary">
+                        <i class="fas fa-gamepad"></i>
+                        Play My Minigames!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">&copy; 2026 Alex Freel. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="fun.js"></script>
+</body>
+</html>
